@@ -3,7 +3,7 @@
 <h1>Unit 3 Final Project: Prithvi</h1>
  
 <strong>Description</strong>: 
- This is a project that I made because I wanted to try and make a platformer. I had trouble with bullets and enemies. I used box2D as the main library for this project.
+ This is a project that I made because I wanted to try and make a platformer. I had trouble with bullets and enemies. I used box2D as the main library for this project. I was not able to finish the bullets and enemies, which I was very disappointed about. I feel like this isn't my best work, but I did get a better understanding of box2D.
 <h2>Timeline</h2>
  
 <div>
