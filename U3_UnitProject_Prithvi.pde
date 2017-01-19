@@ -3,10 +3,12 @@ import org.jbox2d.collision.shapes.*;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 
+ArrayList Cloud;
 Box2DProcessing box2d;
-float playerX, playerY;
-float a = playerX,b = playerY;
+float playerX;
+float playerY;
 Player p1;
+Enemy E;
 Platform platform1;
 Platform platform2;
 Platform platform3;
@@ -21,12 +23,12 @@ PImage platform;
 void setup()
 {
   fullScreen(P3D);
-  colorMode(HSB);
   smooth();
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
   box2d.setGravity(0, -100);
   box2d.setContinuousPhysics(true);
+  Cloud = new ArrayList();
 
   playerImg = loadImage("Stationary.png");
   platform = loadImage("playground.png");
@@ -48,11 +50,21 @@ void draw()
   background(200);
 
   box2d.step();
-
+  
+for (int i=0; i < Cloud.size(); i++) 
+  {
+    Cloud d = (Cloud) Cloud.get(i);
+    d.display();
+    d.run();
+if (Cloud.size() > 6)
+{
+  Cloud.remove(1);
+}
+  }
+        Cloud.add(new Cloud());
   p1.Draw();
   p1.Update();
-  ellipse(playerX, playerY, 40, 40);
-  
+
   platform1.Draw();
   platform2.Draw();
   platform3.Draw();
