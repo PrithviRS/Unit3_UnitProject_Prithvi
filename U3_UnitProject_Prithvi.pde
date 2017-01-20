@@ -20,6 +20,7 @@ Platform platform7;
 //Images
 PImage playerImg;
 PImage platform;
+PImage enemyImg;
 void setup()
 {
   fullScreen(P3D);
@@ -32,8 +33,10 @@ void setup()
 
   playerImg = loadImage("Stationary.png");
   platform = loadImage("playground.png");
+  enemyImg = loadImage("Enemy.png");
   playerImg.resize(45, 90);
   p1 = new Player(width/2, 0, playerImg, true);
+  E = new Enemy(0, 0, enemyImg, true);
 
   int w = platform.width;
 
@@ -50,28 +53,26 @@ void draw()
   background(200);
 
   box2d.step();
-  
-for (int i=0; i < Cloud.size(); i++) 
+
+  for (int i=0; i < Cloud.size(); i++) 
   {
     Cloud d = (Cloud) Cloud.get(i);
     d.display();
     d.run();
-if (Cloud.size() > 6)
-{
-  Cloud.remove(1);
-}
+    if (Cloud.size() > 6)
+    {
+      Cloud.remove(1);
+    }
   }
-        Cloud.add(new Cloud());
+  Cloud.add(new Cloud());
   p1.Draw();
   p1.Update();
-
+  E.Draw();
+  
   platform1.Draw();
   platform2.Draw();
   platform3.Draw();
   platform4.Draw();
   platform5.Draw();
   platform6.Draw();
-  
-
-
 }

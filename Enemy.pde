@@ -1,39 +1,29 @@
-class Enemy
+class Enemy extends Entity
 {
   
-  
+  PImage _img;
   PVector _pos;
   PVector _velocity;
   PVector _acceleration;
-  
-  Enemy()
+  float _x, _y;
+   private Body _body;
+  Enemy(float x, float y, PImage img, boolean isActive)
   {
+    super(x, y, img, "Player", isActive);
     _pos = new PVector(10, 10);
     _velocity = new PVector(0,0);
-    
+
+    super.CreateBody(BodyType.DYNAMIC);
     
   }
+ 
+
+void Move()
+{
+
+}
+
+
   
-  void Draw()
-  {
-    fill(0,0,0);
-    ellipse(_pos.x, _pos.y, 50, 50);
-  }
-  
-
-
-  void Move()
-  {
-    
-    
-    _velocity.add(_acceleration);
-
-    _pos.add(_velocity);
-  }
-  void Update()
-  {
-    Move();
-    Draw();
-  }
   
 }
