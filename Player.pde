@@ -5,21 +5,17 @@ class Player extends Entity
   private boolean _keyFly;
   private PVector _moveSpeed;
   private int     _flightStrength;
+  public PVector pos;
 
-  
   Player(float x, float y, PImage img, boolean isActive)
   {
     super(x, y, img, "Player", isActive);
     super.CreateBody(BodyType.DYNAMIC);
-    _moveSpeed = new PVector(50,0);
-    playerX = x;
-    playerY = y;
-    
+    _moveSpeed = new PVector(50, 0);
 
     _flightStrength = 200;
-
   }
-  
+
   public void Update()
   {
     KeyInputs();
@@ -41,40 +37,37 @@ class Player extends Entity
       {
         _keyFly = true;
       }
-    }
-    else
+    } else
     {
       _keyLeft  = false;
       _keyRight = false;
       _keyFly  = false;
     }
   }
-  
+
   private void HandleMovement()
   {
     Vec2 currentVelocity = super._body.getLinearVelocity();
-    
-    
-    
+
+
+
     if (_keyRight)
     {
       currentVelocity.x = 1 * _moveSpeed.x;
-    }
-    else if (_keyLeft)
+    } else if (_keyLeft)
     {
       currentVelocity.x = -1 * _moveSpeed.x;
-    }
-    else
+    } else
     {
       currentVelocity.x = 0;
     }
     super._body.setLinearVelocity(currentVelocity);
-    
 
-    
+
+
     if (_keyFly == true)
     {
-       super._body.applyLinearImpulse( new Vec2(0, _flightStrength), super.GetWorldCenter(), false);
+      super._body.applyLinearImpulse( new Vec2(0, _flightStrength), super.GetWorldCenter(), false);
     }
   }
 }

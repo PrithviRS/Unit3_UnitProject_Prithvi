@@ -68,6 +68,7 @@ void draw()
   p1.Draw();
   p1.Update();
   E.Draw();
+  E.Update();
   
   platform1.Draw();
   platform2.Draw();
