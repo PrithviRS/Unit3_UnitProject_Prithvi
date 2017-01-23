@@ -18,11 +18,6 @@ class Enemy extends Entity
   }
  
 
-void Move()
-{
-
-}
-
 
   
   
