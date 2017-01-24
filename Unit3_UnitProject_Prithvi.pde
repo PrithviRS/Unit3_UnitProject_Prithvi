@@ -27,7 +27,7 @@ void setup()
   smooth();
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
-  box2d.setGravity(0, -100);
+  box2d.setGravity(0, -200);
   box2d.setContinuousPhysics(true);
   Cloud = new ArrayList();
 

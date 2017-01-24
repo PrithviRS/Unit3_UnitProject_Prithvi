@@ -18,7 +18,7 @@ class Enemy extends Entity
     super(x, y, img, "Enemy", isActive);
     _pos = new PVector(10, 10);
     _velocity = new PVector(0, 0);
-    _moveSpeed = new PVector(50, 0);
+    _moveSpeed = new PVector(200, 0);
     super.CreateBody(BodyType.DYNAMIC);
     v1 = new PVector(0, 0);
     _flightStrength = 200;
@@ -31,17 +31,17 @@ class Enemy extends Entity
   }
   private void KeyInputs()
   {
-    if (key==CODED)
+     if (keyPressed)
     {
-      if (keyCode == RIGHT)
+      if (key == 'l')
       {
         _keyRight = true;
       }
-      if (keyCode == LEFT)
+      if (key == 'j')
       {
         _keyLeft = true;
       }
-      if (keyCode =)
+      if (key == 'i')
       {
         _keyFly = true;
       }
